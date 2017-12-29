@@ -1,42 +1,33 @@
 import React, {Component} from 'react';
 import './chessboard.css';
+import { FEN } from 'chesslib';
+
+FEN.parse('asd');
 
 class Chessboard extends Component {
+
     render() {
+
+        var cells = [];
+
+        for(var i=0;i<8;i++) {
+            cells.push(<div className="cell">
+                <div className="wrapper">
+                    1
+                </div>
+            </div>);
+        }
+
+        var rows = [];
+
+        for( i=0;i<8;i++) {
+            rows.push(<div className="row">{cells}</div>);
+        }
+
         return (
             <div className="chessboard">
                 <div className="boardWrapper">
-                    <div className="row"> 123
-                        {/*<div className="cell">1</div>*/}
-                        {/*<div className="cell">2</div>*/}
-                        {/*<div className="cell">3</div>*/}
-                        {/*<div className="cell">4</div>*/}
-                        {/*<div className="cell">5</div>*/}
-                        {/*<div className="cell">6</div>*/}
-                        {/*<div className="cell">7</div>*/}
-                        {/*<div className="cell">8</div>*/}
-                    </div>
-                    <div className="row">123
-                        {/*<div className="cell">1</div>*/}
-                        {/*<div className="cell">2</div>*/}
-                        {/*<div className="cell">3</div>*/}
-                        {/*<div className="cell">4</div>*/}
-                        {/*<div className="cell">5</div>*/}
-                        {/*<div className="cell">6</div>*/}
-                        {/*<div className="cell">7</div>*/}
-                        {/*<div className="cell">8</div>*/}
-                    </div>
-                    <div className="row">123
-                        {/*<div className="cell">1</div>*/}
-                        {/*<div className="cell">2</div>*/}
-                        {/*<div className="cell">3</div>*/}
-                        {/*<div className="cell">4</div>*/}
-                        {/*<div className="cell">5</div>*/}
-                        {/*<div className="cell">6</div>*/}
-                        {/*<div className="cell">7</div>*/}
-                        {/*<div className="cell">8</div>*/}
-                    </div>
-
+                    {rows}
                 </div>
             </div>
         );
