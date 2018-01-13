@@ -1,8 +1,5 @@
 import React, {Component} from 'react';
 import './chessboard.css';
-import { FEN } from 'chesslib';
-
-FEN.parse('asd');
 
 class Chessboard extends Component {
 
