@@ -1,0 +1,62 @@
+.cell {
+  position: relative;
+  height: 0;
+  width: 12.5%;
+  padding-bottom: 12.5%;
+
+  .wrapper {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    display: table;
+  }
+
+  &.white {
+    background: #f4f4f4;
+  }
+
+  &.black {
+    background: #5e5e5e;
+  }
+
+  .notation {
+
+    color: white;
+    position: absolute;
+
+    &.notation-file {
+      right: 0;
+      bottom: 0;
+    }
+
+    &.notation-rank {
+
+    }
+  }
+}
+
+.row {
+  .cell:first-of-type {
+    .notation-rank {
+      left: -15px;
+    }
+  }
+  .cell:last-of-type {
+    .notation-rank {
+      right: -15px;
+    }
+  }
+}
+
+.row:first-of-type {
+  .notation-file {
+    top: -20px;
+  }
+}
+
+.row:last-of-type {
+  .notation-file {
+    bottom: -20px;
+  }
+}

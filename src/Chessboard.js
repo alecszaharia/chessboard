@@ -1,24 +1,34 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+import Cell from './components/Cell';
+import Row from './components/Row';
 import './chessboard.css';
 
+
+export const WHITE = 'white';
+export const BLACK = 'black';
+
 class Chessboard extends Component {
+
 
     render() {
 
         var cells = [];
-
-        for(var i=0;i<8;i++) {
-            cells.push(<div className="cell">
-                <div className="wrapper">
-                    1
-                </div>
-            </div>);
-        }
-
         var rows = [];
 
-        for( i=0;i<8;i++) {
-            rows.push(<div className="row">{cells}</div>);
+        let color = WHITE;
+        let rcolor = WHITE;
+        for (var i = 0; i < 8; i++) {
+            cells = [];
+            for (var j = 0; j < 8; j++) {
+                cells.push(<Cell key={j} color={color} position={[i,j]} piece={'wK'}/>);
+                color = color === WHITE ? BLACK : WHITE;
+            }
+
+            rcolor = rcolor === WHITE ? BLACK : WHITE;
+            color = rcolor;
+
+            rows.push(<Row key={i} index={i}>{cells}</Row>);
         }
 
         return (
@@ -30,5 +40,11 @@ class Chessboard extends Component {
         );
     }
 }
+
+Chessboard.propTypes = {
+    fen: PropTypes.string.isRequired,
+    orientation: PropTypes.oneOf([WHITE, BLACK]),
+    onChange: PropTypes.func
+};
 
 export default Chessboard;
