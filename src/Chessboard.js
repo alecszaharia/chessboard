@@ -10,6 +10,21 @@ export const BLACK = 'black';
 
 class Chessboard extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            board: [
+                [0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0]
+            ]
+        };
+    }
 
     render() {
 
